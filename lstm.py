@@ -98,7 +98,7 @@ if authenticate_user():
         with tab1:
             st.markdown("""
     ### **Stock Market Data Overview**  
-    The displayed table provides a **detailed historical summary of AAPL  stock prices**, covering various key metrics for different trading days. It includes:  
+    The displayed table provides a **detailed historical summary of stock prices**, covering various key metrics for different trading days. It includes:  
 
     - **Date:** The specific trading day for each record.  
     - **Close Price:** The final price at which the stock traded on that day.  
