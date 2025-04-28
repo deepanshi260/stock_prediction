@@ -93,7 +93,7 @@ if authenticate_user():
         st.markdown(f"### {user_input} Stock Overview")
 
         # Tabs for different views
-        tab1, tab2, tab3 = st.tabs(["Price Summary", "Historical Data", "Charts"])
+        tab1, tab2, tab3,tab4 = st.tabs(["Price Summary", "Historical Data", "Charts","Beginner Mode"])
 
         with tab1:
             st.markdown("""
@@ -236,8 +236,133 @@ if authenticate_user():
                 <h3 style="color:white;">💡 Recommendation: <span style="color:lightgreen;">{recommendation}</span></h3>
             </div>
             """, unsafe_allow_html=True)
+            with tab4:
+
+                st.subheader("📚 Learn the Basics of Stocks")
+
+                with st.expander("📈 What is a Stock?"):
+                    st.markdown("""
+                    A **stock** represents a share in the ownership of a company. When you buy a stock, 
+                    you become a **partial owner** of the company and may earn a share of the profits.
+
+                    🔹 **Example:** Buying one share of Apple means you own a tiny piece of Apple Inc.
+                    """)
+
+                with st.expander("💸 What is the 'Close Price'?"):
+                    st.markdown("""
+                    The **closing price** is the final price at which a stock is traded on a given trading day. 
+                    It's often used to track a stock’s performance.
+
+                    🔹 **Example:** If a stock closes at ₹200, that was the last traded price of the day.
+                    """)
+
+                with st.expander("📊 What is a Moving Average?"):
+                    st.markdown("""
+                    A **moving average** smooths out price data by creating a constantly updated average price. 
+                    It's useful for spotting trends.
+
+                    🔹 **Example:** A 100-day moving average shows the average stock price over the last 100 days.
+                    """)
+
+                with st.expander("📈 What is an Uptrend?"):
+                    st.markdown("""
+                    An **uptrend** is when a stock’s price keeps going higher over time, usually with higher highs and higher lows.
+
+                    🔹 **Hint:** Investors often see uptrends as a sign of strength.
+                    """)
+                with st.expander("📉 What is a Downtrend?"):
+                    st.markdown("""
+                    A **downtrend** means the stock price is decreasing over time, with lower highs and lower lows.
+
+                    🔹 **Hint:** It can be a signal that the market or stock is weakening.
+                    """)
+
+                with st.expander("🐂 What is a Bull Market?"):
+                    st.markdown("""
+                    A **bull market** is a market condition where prices are rising or expected to rise. 
+                    It's typically driven by optimism and investor confidence.
+
+                    🔹 **Example:** A 20% rise in stock prices over a few months can indicate a bull market.
+                    """)
+
+                with st.expander("🐻 What is a Bear Market?"):
+                    st.markdown("""
+                    A **bear market** is the opposite of a bull market — prices are falling, and there's widespread pessimism.
+
+                    🔹 **Example:** A market is considered bearish if it falls 20% or more from recent highs.
+                    """)
+
+                with st.expander("🧠 Why Do Stock Prices Change?"):
+                    st.markdown("""
+                    Stock prices change due to **supply and demand**, company performance, economic indicators, news, and investor sentiment.
+
+                    🔹 **Fun Fact:** Even a tweet can sometimes impact a stock's price!
+                    """)
+
+
+                st.markdown("---")
+
+                with st.expander("🧠 Test Your Knowledge: Stock Basics Quiz"):
+                    score = 0
+
+                    q1 = st.radio("1. What does a stock represent?", [
+                        "A loan to a company",
+                        "Ownership in a company",
+                        "A government bond"])
+                    if q1 == "Ownership in a company":
+                        score += 1
+
+                    q2 = st.radio("2. What does the 'Close Price' mean?", [
+                        "Price at the start of trading",
+                        "Lowest price of the day",
+                        "Price at market close"])
+                    if q2 == "Price at market close":
+                        score += 1
+
+                    q3 = st.radio("3. What does an uptrend mean?", [
+                        "Prices are falling",
+                        "Prices are stable",
+                        "Prices are rising"])
+                    if q3 == "Prices are rising":
+                        score += 1
+
+                    q4 = st.radio("4. What is a moving average?", [
+                        "A stock price's average over time",
+                        "The highest price of the stock",
+                        "The lowest price of the stock"])
+                    if q4 == "A stock price's average over time":
+                        score += 1
+
+                    q5 = st.radio("5. What does the term 'bull market' mean?", [
+                        "The market is experiencing a long-term decline",
+                        "The market is experiencing a long-term increase",
+                        "The market is experiencing stable conditions"])
+                    if q5 == "The market is experiencing a long-term increase":
+                        score += 1
+
+                    q6 = st.radio("6. What is the 'P/E Ratio' of a stock?", [
+                        "Price to Earnings ratio, showing how expensive a stock is",
+                        "Price to Equity ratio, showing the stock's value",
+                        "Price to Expense ratio, showing how much the stock costs"])
+                    if q6 == "Price to Earnings ratio, showing how expensive a stock is":
+                        score += 1
+
+                    q7 = st.radio("7. What is a 'dividend'?", [
+                        "A type of stock option",
+                        "A payment made by a corporation to its shareholders",
+                        "The price of a stock after market close"])
+                    if q7 == "A payment made by a corporation to its shareholders":
+                        score += 1
+
+                    if st.button("Check My Score"):
+                        st.success(f"🎉 You scored {score}/7!")
+                        if score == 7:
+                            st.balloons()
+
+                    
 
 
 
     else:
         st.warning("Please select a stock ticker to display data.")
+ 
